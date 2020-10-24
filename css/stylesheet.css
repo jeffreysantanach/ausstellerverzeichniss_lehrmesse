@@ -1,0 +1,36 @@
+.bg {
+    background-color: rgb(33, 91, 161)
+}
+
+.bg-body {
+    background-color: rgb(112, 153, 202)
+}
+
+.bg-color {
+    background-color: rgb(255, 255, 255);
+}
+
+.containertest {
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.logos-small {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.address {
+    font-size: 24px;
+}
+
+.table-text {
+    font-size: 20px;
+}
