@@ -11,6 +11,7 @@ $(document).ready(function() {
     var tel = 'Tel: ' + company.phone;
     var maps = 'https://maps.google.de/maps?hl=de&q=' + company.street + company.city + 'h&t=&z=14&ie=utf8&iwloc=b&output=embed';
     var logo = 'img/logos/' + id + '.png';
+    var url = 'https://' + company.website;
 
     $('#name').html(name);
     $('#name_address').html(company.name)
@@ -20,8 +21,9 @@ $(document).ready(function() {
     $('#email').html(email);
     $('#tel').html(tel);
     $('#maps').attr("src", maps);
-    $('#logo').attr("src", logo)
+    $('#logo').attr("src", logo);
     $('#description').html(company.description);
+    $('#website').attr("href", url);
 
 });
 
