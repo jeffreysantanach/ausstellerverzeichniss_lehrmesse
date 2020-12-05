@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    var id = 3;
+    var id = findGetParameter("id");
     var company = getCompany(id);
-    console.log(company);
+
 
 
     var booth = 'Stand: ' + company.booth;
@@ -13,6 +13,7 @@ $(document).ready(function() {
     var logo = 'img/logos/' + id + '.png';
     var url = 'https://' + company.website;
     var persons = company.contactpersons;
+    var apprenticeships = company.apprenticeships;
 
     $('#name').html(name);
     $('#name_address').html(company.name)
@@ -27,6 +28,7 @@ $(document).ready(function() {
     $('#website').attr("href", url);
     $('#video').attr("src", company.video)
     Object.keys(persons).forEach(key => { append_persons(persons[key], key) });
+    Object.keys(apprenticeships).forEach(key => { append_apprenticeship(apprenticeships[key], key) });
 });
 
 function append_persons(array, key) {
@@ -46,6 +48,34 @@ function append_persons(array, key) {
     $('#' + infocontainer).append('<p class="person">' + person.phone + '</p>');
 }
 
+function append_apprenticeship(array, key) {
+
+    var apprenticeship = array;
+    var accordion = 'apprenticeships';
+    var card = 'card' + key;
+    var heading = 'heading' + key;
+    var title = 'title' + key;
+    var collapse = 'collapse' + key;
+    var cardbody = 'card' + key;
+
+    $('#apprenticeships').append('<div class="card" id="' + card + '"></div> ');
+    $('#' + card).append(' <div class="card-header" id="' + heading + '">');
+    $('#' + heading).append('<h2 class="mb-0" id="' + title + '"></h2>');
+    $('#' + title).append('<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' + collapse + '" aria-expanded="false" aria-controls="' + collapse + '">' + apprenticeship.name + '</button>');
+    $('#' + card).append('<div id="' + collapse + '" class="collapse" aria-labelledby="' + heading + '" data-parent="#' + accordion + '">');
+    $('#' + collapse).append('<div class="card-body" id="' + cardbody + '" >' + apprenticeship.description + ' </div>');
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
+}
 
 function getCompany(id) {
     var url = 'https://lehrmesse.ch/api/company/?id=' + id;
