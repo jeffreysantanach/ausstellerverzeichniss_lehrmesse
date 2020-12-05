@@ -12,7 +12,7 @@ function append_company(array, key) {
     var companyid = key;
     var logo = 'img/logos/' + companyid + '.png';
     var place = company.postalcode + ' ' + company.city
-    var profile = "profilepro.html?id=" + companyid;
+    var profile = "profile.html?id=" + companyid;
 
 
     $('tbody').append('<tr id="tr' + key + '"></tr>');
