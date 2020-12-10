@@ -13,6 +13,13 @@ function getCompany(id) {
 
 }
 
+function getCompanybybooth(booth) {
+    var url = 'https://lehrmesse.ch/api/booth/?booth=' + booth;
+    var result = runGETRequest(url);
+    return result;
+
+}
+
 function runGETRequest(url) {
     var data = [];
     var xmlHttp = new XMLHttpRequest();
