@@ -41,24 +41,13 @@ function findGetParameter(parameterName) {
 }
 
 
-function replaceletter(string) {
-    if (string.includes('ue')) {
-        string = string.replace('ue', '&uuml;');
-        return string;
-    } else if (string.includes('ae')) {
-        string = string.replace('ae', '&auml;');
-        return string;
-    } else if (string.includes('oe')) {
-        string = string.replace('oe', '&ouml;');
-        return string;
-    } else if (string.includes('Oe')) {
-        string = string.replace('Oe', '&Ouml;');
-        return string;
-    } else if (string.includes('Ae')) {
-        string = string.replace('Ae', '&Auml;');
-        return string;
-    } else if (string.includes('Ue')) {
-        string = string.replace('Ue', '&Uuml;');
-        return string;
-    }
+function replacespecialletters(string) {
+    string = string.replaceAll('ue', '&uuml;');
+    string = string.replaceAll('ae', '&auml;');
+    string = string.replaceAll('oe', '&ouml;');
+    string = string.replaceAll('Oe', '&Ouml;');
+    string = string.replaceAll('Ae', '&Auml;');
+    string = string.replaceAll('Ue', '&Uuml;');
+    return string;
+
 }
