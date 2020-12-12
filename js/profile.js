@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var id = findGetParameter("id");
     var company = getCompany(id);
     var booth = 'Stand: ' + company.booth;
@@ -25,12 +26,18 @@ $(document).ready(function() {
     $('#description').html(replacespecialletters(company.description));
     $('#website').attr("href", url);
     $('#video').attr("src", company.video)
+
     Object.keys(persons).forEach(key => { append_persons(persons[key], key) });
     Object.keys(apprenticeships).forEach(key => { append_apprenticeship(apprenticeships[key], key) });
 });
 
 function append_persons(array, key) {
-
+    /**
+     * Adds a person to the Contact persons
+     * @param {Array} array contact person array with infomation about the person
+     * @param {key} key Unique identifier of the person
+     * 
+     */
     var person = array;
     var maincontainer = 'person' + key;
     var imageid = 'image' + key;
@@ -47,7 +54,12 @@ function append_persons(array, key) {
 }
 
 function append_apprenticeship(array, key) {
-
+    /**
+     * Adds a apprenticeship to the apprenticeship accordion
+     * @param {Array} array apprenticeship array with infomation about the apprenticeship
+     * @param {key} key Unique identifier of the person
+     * 
+     */
     var apprenticeship = array;
     var accordion = 'apprenticeships';
     var card = 'card' + key;

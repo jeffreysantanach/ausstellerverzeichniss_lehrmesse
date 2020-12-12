@@ -4,8 +4,14 @@ $(document).ready(function() {
 
 });
 
-function append_company(array, key) {
 
+function append_company(array, key) {
+    /**
+     * Adds a company to the exhibitor list.
+     * @param {Array} array Company Array with infomation about the company
+     * @param {key} key Unique identifier of the company
+     * 
+     */
     var company = array;
     var companyid = key;
     var logo = 'img/logos/' + companyid + '.png';
